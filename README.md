@@ -4,13 +4,8 @@ For this project I created a 10x10 garden simulation. In this simulation mushroo
 
 Run the simulation by cloning the code and tying the folling in your terminal:
 
-g++ *.cpp
-./a.out
-
-or 
-
-g++ -std=c++20 *.cpp
-./a.out
+To run to code cd into the directory and type "./sub1"
+(To compile "g++ *.cpp -o sub1" if necessary)
 
 Click "Final_WriteUp" for a more detailed discription of the project!
 
