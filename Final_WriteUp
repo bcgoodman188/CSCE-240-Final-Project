@@ -1,0 +1,58 @@
+Snails and Shrooms:
+For this project I created a 10 by 10 garden grid of Snails and Mushrooms.  Their is one type of snail denoted by the Snail Struct
+and 2 types of mushrooms in the Mushroom Struct.  All Snails have the name S and have a randomly assinged immunity.  Mushrooms that are 
+non toxic are denoted by the name M and hold a toxicity value of 0.  Toxic mushrooms have the name T and have a Toxcicity value of 1.
+
+If a snail eats a toxic mushroom, the computer will determine if the snail lives or dies.  If it dies, both the Snails location and the Toxic Mushroom
+location become ground.  If it survives, the Toxic mushrooms location becomes Ground and the Snail remains on the board.
+
+the operator==() method determines if the stored snails immunity is enough to survive eating the toxic mushroom by comparing immunity 1 to toxicity 1.
+if the snails immunity is 0 and the toxicity is 1. 0 != 1 so the operator returns false and the snail dies.
+
+The console will tell the user what day it is by using the DayCycle method.  this method changes the day which is then used in the stoppping condition
+for 300 days.
+
+SnailEating will return a bool of snailAte to determine if snailMovement needs to be run. (if snailAte == false, move)
+
+
+int terminationCounter = 0; 
+use with the termination methods to determine if the grid has no snails left or no mushrooms left
+
+
+int snailGenCounter = 0;
+a counter that goes up by one everytime UpdateGrid is called.  When UpdateGrid is called 5 times, UpdateGrid will call SnailGeneration to 
+create a new snail.
+
+
+The simulation will terminate if one of 4 conditions are met.
+1.) 300 rounds pass, winter arrives and everyting in the garden dies (Death method)
+2.) Snails take over, no more mushrooms remain (SnailsTerminate method)
+3.) Mushrooms take over, no more snails remain (MushroomsTerminate method) 
+4.) The user says they do not what to see the next day (user inputs "n")
+
+Key:
+G = ground
+S = Snail
+M = non-toxic mushroom
+T = toxic mushroom
+X = Death (only appears in the 300 round condition.  When snails and mushrooms die their death is denoted by ground "G")
+
+Rules:
+1. If a snail is next to a mushroom it will eat it as opposed to moving.(snailAte == true, no SnailMovement)
+2. A snail will eat a mushroom above, next to, or below it at random.  It will not ignore toxic mushrooms to eat non toxic mushrooms.
+3. Snails will only move one space at random if they have not ate and do not move diagonally. (snailate == false, SnailMovement)
+4. Every 5 rounds a snail will be generated randomly at the index grid[random value][1] of ground (G). This is so that the snails spawn on the left side of the board
+opposite of the mushrooms. (SnailGeneration method)
+5. A mushroom that is not toxic will create one new mushroom next to it every turn (MushroomGrowth Method)
+6. Toxic mushrooms do not replicate.
+7. If a mushroom is surrounded by mushrooms or snails it will not generate anymore mushrooms until a space becomes avalible. (MushroomGrowth method)
+8. If a snail eats a non-toxic mushroom, that mushroom always becomes a new snail (SnailEating method)
+9. If a snail survives eating a toxic mushroom, it will not spawn a snail (SnailEating method)
+10. Snails have a chance to die (turn into ground) when they eat a toxic mushroom. (SnailEating method)
+11. Eaten toxic mushrooms become ground. (SnailEating method)
+12. Snails do not push snails.  If a snail is located at the direction it wishes to move, it will move another direction. (SnailMovement mothod)
+
+Running the code:
+
+To run to code cd into the directory and type "./sub1"
+(To compile "g++ *.cpp -o sub1" if necessary)
