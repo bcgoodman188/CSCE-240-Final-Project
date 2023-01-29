@@ -4,7 +4,7 @@ For this project I created a 10x10 garden simulation. In this simulation mushroo
 
 Run the simulation by cloning the code and tying the folling in your terminal:
 
-To run to code cd into the directory and type "g++ *.cpp -o sub1"
+To run to code cd into the directory and type "g++ *.cpp -o sub1 && ./sub1"
 
 Click "Final_WriteUp" for a more detailed discription of the project!
 
